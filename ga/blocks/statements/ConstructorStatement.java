@@ -12,7 +12,7 @@ public class ConstructorStatement extends Statement {
   }
 
   @Override
-  public String ToString() {
+  public String Translate() {
     return String.format("%s %s = new %s", className, name, className);
   }
 }

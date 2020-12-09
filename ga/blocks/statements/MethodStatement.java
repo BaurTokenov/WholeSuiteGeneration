@@ -13,7 +13,7 @@ public class MethodStatement extends Statement {
   }
 
   @Override
-  public String ToString() {
+  public String Translate() {
     // TODO Auto-generated method stub
     return String.format("%s %s = %s.%s()", methodType, name, objectName, methodName);
   }

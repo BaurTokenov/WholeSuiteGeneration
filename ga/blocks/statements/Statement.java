@@ -1,7 +1,10 @@
 package ga.blocks.statements;
 
-abstract public class Statement {
+public class Statement {
 
+  public Statement() {
+  }
+  
   static String generateVariableName() {
     String letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ" + "abcdefghijklmnopqrstuvxyz";
     String digits = "0123456789";
@@ -18,5 +21,14 @@ abstract public class Statement {
 
   }
 
-  abstract public String ToString();
+  public String Translate(){
+    return null;
+  }
+
+  public void assignRandomValues(){
+  }
+
+  public void setName(String name){
+
+  }
 }
