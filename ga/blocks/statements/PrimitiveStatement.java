@@ -26,7 +26,7 @@ public class PrimitiveStatement extends Statement {
 
   @Override
   public String Translate() {
-    return String.format("%s %s = $s", type, name, value);
+    return String.format("%s %s = %s", type, name, value);
   }
 
   @Override
@@ -44,7 +44,9 @@ public class PrimitiveStatement extends Statement {
         value = r.nextFloat() + "f";
         break;
       case "double":
-        value = r.nextDouble() +"";
+        value = r.nextDouble() + "";
+      case "string":
+        value = "Bauka";
       default:
         break;
     }
