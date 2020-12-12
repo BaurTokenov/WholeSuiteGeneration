@@ -2,13 +2,14 @@ package com.WholeSuiteGeneration.app.ga.blocks.statements;
 
 public class MethodStatement extends Statement {
   String methodType, objectName, methodName, name;
-  String[] methodArguments;
+  String[] parameterTypes;
 
-  public MethodStatement(String methodType, String objectName, String methodName, String[] methodArguments) {
+  public MethodStatement(String methodType, String objectName, String methodName, String[] parameterTypes) {
     this.methodName = methodName;
     this.methodType = methodType;
+    // on what object we are calling this method
     this.objectName = objectName;
-    this.methodArguments = methodArguments;
+    this.parameterTypes = parameterTypes;
     this.name = generateVariableName();
   }
 

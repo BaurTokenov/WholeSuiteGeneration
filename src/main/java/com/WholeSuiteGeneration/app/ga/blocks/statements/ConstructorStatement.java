@@ -2,12 +2,14 @@ package com.WholeSuiteGeneration.app.ga.blocks.statements;
 
 public class ConstructorStatement extends Statement {
   String className;
-  String[] parameters;
+  String[] parameterTypes;
   String name;
+  
+  public  
 
   public ConstructorStatement(String className, String[] args) {
     this.className = className;
-    this.parameters = args;
+    this.parameterTypes = args;
     this.name = generateVariableName();
   }
 
@@ -15,4 +17,11 @@ public class ConstructorStatement extends Statement {
   public String Translate() {
     return String.format("%s %s = new %s", className, name, className);
   }
+//napishi che nado chtoby ne zabytb
+
+  @Override
+  public void updateScope(TestCaseScope tcs) {
+		//TODO: add fields
+		//TODO: add methods	
+	}
 }

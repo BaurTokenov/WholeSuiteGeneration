@@ -31,4 +31,8 @@ public class Statement {
   public void setName(String name) {
 
   }
+
+  public void updateScope(TestCaseScope tcs){
+
+  }
 }
