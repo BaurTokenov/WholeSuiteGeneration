@@ -38,7 +38,7 @@ public class PrimitiveStatement extends Statement {
       case "int":
         value = (bound - 2 * r.nextInt(bound)) + "";
         break;
-      case "bool":
+      case "boolean":
         value = r.nextBoolean() + "";
         break;
       case "float":

@@ -3,7 +3,7 @@ package com.WholeSuiteGeneration.app.testClasses;
 import java.util.EmptyStackException;
 
 public class TestStack {
-  int[] values = new int[10];
+  int[] values;
   int size = 0;
 
   public static void main(String[] args) {
@@ -11,6 +11,10 @@ public class TestStack {
     for (String str : args) {
       System.out.println(str);
     }
+  }
+
+  public TestStack() {
+    values = new int[10];
   }
 
   public void push(int x) {

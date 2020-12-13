@@ -18,7 +18,7 @@ public class TestCaseScope {
     private void populateSet(String className, String classPath) {
         availableStatements = new ArrayList<Statement>();
         availableStatements.add(new PrimitiveStatement("int", null));
-        availableStatements.add(new PrimitiveStatement("bool", null));
+        availableStatements.add(new PrimitiveStatement("boolean", null));
         availableStatements.add(new PrimitiveStatement("String", null));
         availableStatements.add(new PrimitiveStatement("float", null));
         availableStatements.add(new PrimitiveStatement("double", null));

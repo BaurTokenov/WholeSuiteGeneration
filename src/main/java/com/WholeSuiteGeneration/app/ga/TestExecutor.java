@@ -26,8 +26,9 @@ public class TestExecutor {
         System.out.println("File already exists");
       }
       FileWriter myWriter = new FileWriter(filePath);
-      String codePrefix = "package com.WholeSuiteGeneration.app.ga;\n" + "import com.WholeSuiteGeneration.app."
-          + className + ";\n" + "public class CurrentTest {\n" + "public static void main(String [] args) {\n";
+      String codePrefix = "package com.WholeSuiteGeneration.app.ga;\n"
+          + "import com.WholeSuiteGeneration.app.testClasses." + className + ";\n" + "public class CurrentTest {\n"
+          + "public static void main(String [] args) {\n";
       String codePostfix = "\n}\n}\n";
       code = codePrefix + code + codePostfix;
       myWriter.write(code);
@@ -42,10 +43,11 @@ public class TestExecutor {
 
   public void executeTest() {
     try {
-      runProcess("pwd");
+      // runProcess("pwd");
       System.out.println("**********");
       String filePath = "src\\main\\java\\com\\WholeSuiteGeneration\\app\\ga\\CurrentTest.java";
-      runProcess("java " + filePath);
+      String fileName = "CurrentTest.java";
+      runProcess("java -cp .\\src\\main\\java   .\\src\\main\\java\\com\\WholeSuiteGeneration\\app\\ga\\" + fileName);
     } catch (Exception e) {
       e.printStackTrace();
     }
