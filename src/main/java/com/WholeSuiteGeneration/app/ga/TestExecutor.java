@@ -8,23 +8,26 @@ import java.io.InputStreamReader;
 
 public class TestExecutor {
   public static void main(String[] args) {
-    TestExecutor cur = new TestExecutor();
-    cur.writeToExecutorFile("System.out.println(\"debil\");");
-    cur.executeTest();
   }
 
-  public double writeToExecutorFile(String code) {
+  public double runTest(String code, String className) {
+    writeToExecutorFile(code, className);
+    executeTest();
+    return 0.1;
+  }
+
+  public double writeToExecutorFile(String code, String className) {
     try {
-      File myObj = new File("CurrentTest.java");
+      String filePath = "src\\main\\java\\com\\WholeSuiteGeneration\\app\\ga\\CurrentTest.java";
+      File myObj = new File(filePath);
       if (myObj.createNewFile()) {
         System.out.println("File created: " + myObj.getName());
       } else {
         System.out.println("File already exists");
       }
-      FileWriter myWriter = new FileWriter("CurrentTest.java");
-      String codePrefix = "package com.WholeSuiteGeneration.app.ga;\n" + "import com.WholeSuiteGeneration.app "
-      // + className +
-          + "\n" + "public class CurrentTest {\n" + "public static void main(String [] args) {\n";
+      FileWriter myWriter = new FileWriter(filePath);
+      String codePrefix = "package com.WholeSuiteGeneration.app.ga;\n" + "import com.WholeSuiteGeneration.app."
+          + className + ";\n" + "public class CurrentTest {\n" + "public static void main(String [] args) {\n";
       String codePostfix = "\n}\n}\n";
       code = codePrefix + code + codePostfix;
       myWriter.write(code);
@@ -41,7 +44,8 @@ public class TestExecutor {
     try {
       runProcess("pwd");
       System.out.println("**********");
-      runProcess("java CurrentTest.java");
+      String filePath = "src\\main\\java\\com\\WholeSuiteGeneration\\app\\ga\\CurrentTest.java";
+      runProcess("java " + filePath);
     } catch (Exception e) {
       e.printStackTrace();
     }

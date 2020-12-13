@@ -27,7 +27,7 @@ public class TestCase {
     public String getCode() {
         String code = "";
         for (Statement cur : this.statements) {
-            code += cur.Translate() + "\n";
+            code += "\t" + cur.Translate() + ";\n";
         }
         return code;
     }

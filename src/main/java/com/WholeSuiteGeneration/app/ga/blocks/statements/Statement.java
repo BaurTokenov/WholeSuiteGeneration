@@ -19,7 +19,6 @@ public class Statement implements Cloneable {
       int index = (int) (digits.length() * Math.random());
       ans += digits.charAt(index);
     }
-    System.out.println("generated name: " + ans);
     return ans;
 
   }

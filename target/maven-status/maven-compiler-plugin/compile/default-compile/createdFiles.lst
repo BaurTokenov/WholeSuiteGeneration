@@ -2,4 +2,3 @@ com\WholeSuiteGeneration\app\Printer.class
 com\WholeSuiteGeneration\app\ga\TestExecutor.class
 com\WholeSuiteGeneration\app\testClasses\testo.class
 com\WholeSuiteGeneration\app\testClasses\TestStack.class
-com\WholeSuiteGeneration\app\ga\CurrentTest.class

@@ -33,6 +33,7 @@ public class PrimitiveStatement extends Statement {
   public void assignRandomValues() {
     int bound = 1 << 15;
     Random r = new Random();
+    System.out.println("Assigninig random value to " + this.name + " " + this.type + " " + this.value);
     switch (type) {
       case "int":
         value = (bound - 2 * r.nextInt(bound)) + "";
@@ -45,11 +46,14 @@ public class PrimitiveStatement extends Statement {
         break;
       case "double":
         value = r.nextDouble() + "";
-      case "string":
-        value = "Bauka";
+        break;
+      case "String":
+        value = "\"Bauka\"";
+        break;
       default:
         break;
     }
+    System.out.println("value is " + this.value);
   }
 
   @Override

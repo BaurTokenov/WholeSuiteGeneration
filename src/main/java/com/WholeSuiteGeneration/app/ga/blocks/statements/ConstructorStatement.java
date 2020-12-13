@@ -16,7 +16,7 @@ public class ConstructorStatement extends Statement {
 
   @Override
   public String Translate() {
-    return String.format("%s %s = new %s();", className, name, className);
+    return String.format("%s %s = new %s()", className, name, className);
   }
   // napishi che nado chtoby ne zabytb
 
