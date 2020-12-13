@@ -22,9 +22,9 @@ public class TestExecutor {
         System.out.println("File already exists");
       }
       FileWriter myWriter = new FileWriter("CurrentTest.java");
-      String codePrefix = "package com.WholeSuiteGeneration.app.ga;\n" +
-
-          "public class CurrentTest {\n" + "public static void main(String [] args) {\n";
+      String codePrefix = "package com.WholeSuiteGeneration.app.ga;\n" + "import com.WholeSuiteGeneration.app "
+      // + className +
+          + "\n" + "public class CurrentTest {\n" + "public static void main(String [] args) {\n";
       String codePostfix = "\n}\n}\n";
       code = codePrefix + code + codePostfix;
       myWriter.write(code);

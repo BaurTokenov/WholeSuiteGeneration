@@ -1,6 +1,8 @@
 package com.WholeSuiteGeneration.app.ga.blocks;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Set;
 
 import com.WholeSuiteGeneration.app.ga.blocks.statements.Statement;
 import com.WholeSuiteGeneration.app.ga.generators.RandomTestCaseGenerator;
@@ -8,21 +10,29 @@ import com.WholeSuiteGeneration.app.ga.generators.RandomTestCaseGenerator;
 public class TestCase {
     public ArrayList<Statement> statements;
     public TestCaseScope scope;
-    private Set<string> coverageSet;
-    private string classPath;
+    private Set<String> coverageSet;
+    private String classPath;
 
-    public TestCase(int maxLen, String classPath) {
-        this.scope = new TestCaseScope(classPath);
+    public TestCase(int maxLen, String className, String classPath) {
+        this.scope = new TestCaseScope(className, classPath);
         this.statements = new ArrayList<Statement>();
-        this.coverageSet = new Set<string>();
+        this.coverageSet = Collections.<String>emptySet();
         this.classPath = classPath;
         RandomTestCaseGenerator randomTestGenerator = new RandomTestCaseGenerator();
         randomTestGenerator.generateTestCase(this.statements, maxLen, this.scope);
     }
 
-    public void mutate()
+    // public void mutate()
 
-    public Set<string> GetSetCoverage(){
+    public String getCode() {
+        String code = "";
+        for (Statement cur : this.statements) {
+            code += cur.Translate() + "\n";
+        }
+        return code;
+    }
+
+    public Set<String> GetSetCoverage() {
         return coverageSet;
     }
 }

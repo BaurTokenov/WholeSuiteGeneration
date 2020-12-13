@@ -12,10 +12,15 @@ public class RandomTestCaseGenerator {
     Random rand = new Random();
     while (statements.size() < maxLen) {
       int scopeSize = scope.availableStatements.size();
-      Statement randomStatement = scope.availableStatements.get(rand.nextInt(scopeSize));
-      randomStatement.assignRandomValues();
-      randomStatement.setName(scope.GenerateVariableName());
-      statements.add(randomStatement);
+      Statement randomStatement;
+      try {
+        randomStatement = (Statement) (scope.availableStatements.get(rand.nextInt(scopeSize)).clone());
+        randomStatement.assignRandomValues();
+        randomStatement.setName(scope.GenerateVariableName());
+        statements.add(randomStatement);
+      } catch (CloneNotSupportedException e) {
+        e.printStackTrace();
+      }
     }
   }
 }

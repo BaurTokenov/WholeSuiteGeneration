@@ -5,9 +5,9 @@ import com.WholeSuiteGeneration.app.ga.blocks.statements.Statement;
 
 public class App {
     public static void main(String[] args) {
-        TestCase checkTestCase = new TestCase(5, "bauka");
-        for (Statement cur : checkTestCase.statements) {
-            System.out.println(cur.Translate());
-        }
+        String classPath = "com.WholeSuiteGeneration.app.testClasses." + args[0];
+        String className = args[0];
+        TestCase checkTestCase = new TestCase(5, className, classPath);
+        System.out.println(checkTestCase.getCode());
     }
 }

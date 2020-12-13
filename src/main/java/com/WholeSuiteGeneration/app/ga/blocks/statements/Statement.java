@@ -1,6 +1,8 @@
 package com.WholeSuiteGeneration.app.ga.blocks.statements;
 
-public class Statement {
+import com.WholeSuiteGeneration.app.ga.blocks.TestCaseScope;
+
+public class Statement implements Cloneable {
 
   public Statement() {
   }
@@ -17,8 +19,13 @@ public class Statement {
       int index = (int) (digits.length() * Math.random());
       ans += digits.charAt(index);
     }
+    System.out.println("generated name: " + ans);
     return ans;
 
+  }
+
+  public Object clone() throws CloneNotSupportedException {
+    return super.clone();
   }
 
   public String Translate() {
@@ -32,7 +39,7 @@ public class Statement {
 
   }
 
-  public void updateScope(TestCaseScope tcs){
+  public void updateScope(TestCaseScope tcs) {
 
   }
 }

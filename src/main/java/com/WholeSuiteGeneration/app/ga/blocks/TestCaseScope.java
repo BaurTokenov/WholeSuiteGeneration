@@ -10,12 +10,12 @@ public class TestCaseScope {
     private int nameIdx;
     public ArrayList<Statement> availableStatements;
 
-    public TestCaseScope(String classPath) {
+    public TestCaseScope(String className, String classPath) {
         nameIdx = 0;
-        populateSet(classPath);
+        populateSet(className, classPath);
     }
 
-    private void populateSet(String classPath) {
+    private void populateSet(String className, String classPath) {
         availableStatements = new ArrayList<Statement>();
         availableStatements.add(new PrimitiveStatement("int", null));
         availableStatements.add(new PrimitiveStatement("bool", null));
@@ -23,40 +23,53 @@ public class TestCaseScope {
         availableStatements.add(new PrimitiveStatement("float", null));
         availableStatements.add(new PrimitiveStatement("double", null));
         // add class constructor as an available statement
-        // add class methods as an available statement 
-        Class cls = Class.forName(classPath);
-        Method m[] = cls.getDeclaredMethods();
-        for (int i = 0; i < m.length; ++i) {
-            System.out.println(m[i].toString());
-        }
-        
-        // TODO: add Constructors to set
-        Constructor ctorlist[] =  cls.GetDeclaredConstructors();
-        for (int i = 0; i < ctorlist.length; i++) {
-            Constructor ct = ctorlist[i];
-            String name = ct.getName();
-            Class p[] = ct.getDeclaredMethods();
-            String pvec[] = new String[p.length];
-            
-            for (int i = 0; i < p.length; i++){
-                pvec[i] = p[i].toString();
+        // add class methods as an available statement
+
+        Class cls;
+
+        try {
+            cls = Class.forName(classPath);
+            // TODO: add Constructors to set
+            Constructor ctorlist[] = cls.getDeclaredConstructors();
+            for (int i = 0; i < ctorlist.length; i++) {
+                Constructor ct = ctorlist[i];
+                System.out.println(ct);
+                // String name = ct.getName();
+                Class p[] = ct.getParameterTypes();
+                String pvec[] = new String[p.length];
+
+                for (int j = 0; j < p.length; j++) {
+                    System.out.println(pvec[j]);
+                    pvec[j] = p[j].toString();
+                }
+                ConstructorStatement cs = new ConstructorStatement(className, pvec, classPath);
+                availableStatements.add(cs);
             }
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        }
 
-            ConstructorStatement cs = new ConstructorStatement(name, p);
-          }
+        // TODO: add static methods
 
-          //TODO: add static methods
+        // Method m[] = cls.getDeclaredMethods();
+        // for (int i = 0; i < m.length; ++i) {
+        // System.out.println(m[i].toString());
+        // }
     }
 
     public String GenerateVariableName() {
-        String letters = "abcdefghijklmnopqrstuvxyz";
-        String name = "";
-        int key = nameIdx++;
-        while (key > 0) {
-            name += letters.charAt(key % 26);
-            key /= 26;
+        String letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ" + "abcdefghijklmnopqrstuvxyz";
+        String digits = "0123456789";
+        String ans = "";
+        for (int i = 0; i < 3; ++i) {
+            int index = (int) (letters.length() * Math.random());
+            ans += letters.charAt(index);
         }
-        return name;
+        for (int i = 0; i < 3; ++i) {
+            int index = (int) (digits.length() * Math.random());
+            ans += digits.charAt(index);
+        }
+        return ans;
     }
 
 }
