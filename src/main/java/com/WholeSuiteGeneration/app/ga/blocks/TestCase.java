@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Set;
 
+import com.WholeSuiteGeneration.app.ga.blocks.statements.MethodStatement;
 import com.WholeSuiteGeneration.app.ga.blocks.statements.Statement;
 import com.WholeSuiteGeneration.app.ga.generators.RandomTestCaseGenerator;
 
@@ -32,7 +33,13 @@ public class TestCase {
         return code;
     }
 
-    public Set<String> GetSetCoverage() {
-        return coverageSet;
+    public Set<String> calculateCoverage() {
+        for (Statement cur : this.statements) {
+            if (cur instanceof MethodStatement) {
+                MethodStatement curMethodStatement = (MethodStatement) cur;
+                this.coverageSet.add(curMethodStatement.getName());
+            }
+        }
+        return this.coverageSet;
     }
 }

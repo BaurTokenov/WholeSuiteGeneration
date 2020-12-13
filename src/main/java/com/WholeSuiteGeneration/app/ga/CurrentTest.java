@@ -2,21 +2,21 @@ package com.WholeSuiteGeneration.app.ga;
 import com.WholeSuiteGeneration.app.testClasses.TestStack;
 public class CurrentTest {
 public static void main(String [] args) {
-	int a = -19786;
-	String b = "Bauka";
-	boolean c = false;
-	String d = "Bauka";
-	float e = 0.49008334f;
-	boolean f = false;
-	TestStack g = new TestStack();
-	g.push();
-	double h = 0.9089788926534645;
-	float i = 0.26930106f;
-	float j = 0.99441165f;
-	int aSm122 = g.pop();
-	boolean k = true;
-	int l = 27178;
-	int aSm122 = g.pop();
+	String a = "Bauka";
+	int b = 25152;
+	int c = 20138;
+	TestStack d = new TestStack();
+	TestStack e = new TestStack();
+	float f = 0.0901531f;
+	double g = 0.41294806666782147;
+	e.resize();
+	d.resize();
+	e.show();
+	boolean k = false;
+	d.show();
+	int m = e.pop();
+	TestStack n = new TestStack();
+	e.show();
 
 }
 }

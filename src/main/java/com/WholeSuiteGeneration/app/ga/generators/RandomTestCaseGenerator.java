@@ -17,11 +17,9 @@ public class RandomTestCaseGenerator {
       Statement randomStatement;
       try {
         randomStatement = (Statement) (scope.availableStatements.get(rand.nextInt(scopeSize)).clone());
-        if (randomStatement instanceof PrimitiveStatement || randomStatement instanceof ConstructorStatement) {
-          randomStatement.setName(scope.GenerateVariableName());
-          randomStatement.assignRandomValues();
-          scope.updateScope(randomStatement);
-        }
+        randomStatement.setName(scope.GenerateVariableName());
+        randomStatement.assignRandomValues();
+        scope.updateScope(randomStatement);
         statements.add(randomStatement);
       } catch (CloneNotSupportedException e) {
         e.printStackTrace();

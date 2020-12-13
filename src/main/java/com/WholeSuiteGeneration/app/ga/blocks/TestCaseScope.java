@@ -87,7 +87,6 @@ public class TestCaseScope {
                 e.printStackTrace();
                 System.out.println("updateScope obosralsya");
             }
-
         }
     }
 

@@ -6,13 +6,6 @@ public class TestStack {
   int[] values;
   int size = 0;
 
-  public static void main(String[] args) {
-    System.out.println("Start");
-    for (String str : args) {
-      System.out.println(str);
-    }
-  }
-
   public TestStack() {
     values = new int[10];
   }
@@ -26,7 +19,7 @@ public class TestStack {
     }
   }
 
-  int pop() {
+  public int pop() {
     if (size > 0) {
       return values[size--];
     } else {
@@ -40,7 +33,7 @@ public class TestStack {
     }
   }
 
-  private void resize() {
+  public void resize() {
     int[] tmp = new int[values.length * 2];
     for (int i = 0; i < values.length; ++i) {
       tmp[i] = values[i];
