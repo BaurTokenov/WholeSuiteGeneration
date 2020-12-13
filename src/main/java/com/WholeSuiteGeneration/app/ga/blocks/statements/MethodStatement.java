@@ -16,6 +16,10 @@ public class MethodStatement extends Statement {
   @Override
   public String Translate() {
     // TODO Auto-generated method stub
-    return String.format("%s %s = %s.%s()", methodType, name, objectName, methodName);
+    if (methodType.equals("void")) {
+      return String.format("%s.%s()", objectName, methodName);
+    } else {
+      return String.format("%s %s = %s.%s()", methodType, name, objectName, methodName);
+    }
   }
 }

@@ -38,7 +38,4 @@ public class Statement implements Cloneable {
 
   }
 
-  public void updateScope(TestCaseScope tcs) {
-
-  }
 }

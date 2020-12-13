@@ -5,13 +5,11 @@ C:\Users\mid1o\Documents\KAIST\Semester 6\WholeSuiteGeneration\src\main\java\com
 C:\Users\mid1o\Documents\KAIST\Semester 6\WholeSuiteGeneration\src\main\java\com\WholeSuiteGeneration\app\ga\blocks\TestCaseScope.java
 C:\Users\mid1o\Documents\KAIST\Semester 6\WholeSuiteGeneration\src\main\java\com\WholeSuiteGeneration\app\ga\blocks\statements\ConstructorStatement.java
 C:\Users\mid1o\Documents\KAIST\Semester 6\WholeSuiteGeneration\src\main\java\com\WholeSuiteGeneration\app\testClasses\TestStack.java
-C:\Users\mid1o\Documents\KAIST\Semester 6\WholeSuiteGeneration\src\main\java\com\WholeSuiteGeneration\app\ga\fitness\CalculateFitness.java
 C:\Users\mid1o\Documents\KAIST\Semester 6\WholeSuiteGeneration\src\main\java\com\WholeSuiteGeneration\app\ga\blocks\TestCase.java
 C:\Users\mid1o\Documents\KAIST\Semester 6\WholeSuiteGeneration\src\main\java\com\WholeSuiteGeneration\app\ga\blocks\statements\MethodStatement.java
 C:\Users\mid1o\Documents\KAIST\Semester 6\WholeSuiteGeneration\src\main\java\com\WholeSuiteGeneration\app\ga\blocks\statements\PrimitiveStatement.java
 C:\Users\mid1o\Documents\KAIST\Semester 6\WholeSuiteGeneration\src\main\java\com\WholeSuiteGeneration\app\ga\blocks\statements\Statement.java
 C:\Users\mid1o\Documents\KAIST\Semester 6\WholeSuiteGeneration\src\main\java\com\WholeSuiteGeneration\app\ga\blocks\TestSuite.java
-C:\Users\mid1o\Documents\KAIST\Semester 6\WholeSuiteGeneration\src\main\java\com\WholeSuiteGeneration\app\ga\CurrentTest.java
 C:\Users\mid1o\Documents\KAIST\Semester 6\WholeSuiteGeneration\src\main\java\com\WholeSuiteGeneration\app\Printer.java
 C:\Users\mid1o\Documents\KAIST\Semester 6\WholeSuiteGeneration\src\main\java\com\WholeSuiteGeneration\app\ga\TestCaseToJUnitTranslator.java
 C:\Users\mid1o\Documents\KAIST\Semester 6\WholeSuiteGeneration\src\main\java\com\WholeSuiteGeneration\app\ga\TestExecutor.java

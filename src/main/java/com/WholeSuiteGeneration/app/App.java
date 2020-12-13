@@ -7,7 +7,8 @@ public class App {
     public static void main(String[] args) {
         String classPath = "com.WholeSuiteGeneration.app.testClasses." + args[0];
         String className = args[0];
-        TestCase checkTestCase = new TestCase(5, className, classPath);
+        int maxTestLength = 15;
+        TestCase checkTestCase = new TestCase(maxTestLength, className, classPath);
         System.out.println(checkTestCase.getCode());
         TestExecutor cur = new TestExecutor();
         cur.runTest(checkTestCase.getCode(), className);

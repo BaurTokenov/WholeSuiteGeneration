@@ -3,6 +3,8 @@ package com.WholeSuiteGeneration.app.ga.generators;
 import java.util.Random;
 
 import com.WholeSuiteGeneration.app.ga.blocks.TestCaseScope;
+import com.WholeSuiteGeneration.app.ga.blocks.statements.ConstructorStatement;
+import com.WholeSuiteGeneration.app.ga.blocks.statements.PrimitiveStatement;
 import com.WholeSuiteGeneration.app.ga.blocks.statements.Statement;
 
 import java.util.ArrayList;
@@ -15,8 +17,11 @@ public class RandomTestCaseGenerator {
       Statement randomStatement;
       try {
         randomStatement = (Statement) (scope.availableStatements.get(rand.nextInt(scopeSize)).clone());
-        randomStatement.setName(scope.GenerateVariableName());
-        randomStatement.assignRandomValues();
+        if (randomStatement instanceof PrimitiveStatement || randomStatement instanceof ConstructorStatement) {
+          randomStatement.setName(scope.GenerateVariableName());
+          randomStatement.assignRandomValues();
+          scope.updateScope(randomStatement);
+        }
         statements.add(randomStatement);
       } catch (CloneNotSupportedException e) {
         e.printStackTrace();

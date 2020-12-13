@@ -9,13 +9,16 @@ public class TestCaseScope {
 
     private int nameIdx;
     public ArrayList<Statement> availableStatements;
+    private String classPath;
 
     public TestCaseScope(String className, String classPath) {
         nameIdx = 0;
+        this.classPath = classPath;
         populateSet(className, classPath);
     }
 
     private void populateSet(String className, String classPath) {
+        this.classPath = classPath;
         availableStatements = new ArrayList<Statement>();
         availableStatements.add(new PrimitiveStatement("int", null));
         availableStatements.add(new PrimitiveStatement("boolean", null));
@@ -25,10 +28,8 @@ public class TestCaseScope {
         // add class constructor as an available statement
         // add class methods as an available statement
 
-        Class cls;
-
         try {
-            cls = Class.forName(classPath);
+            Class cls = Class.forName(classPath);
             // TODO: add Constructors to set
             Constructor ctorlist[] = cls.getDeclaredConstructors();
             for (int i = 0; i < ctorlist.length; i++) {
@@ -51,25 +52,43 @@ public class TestCaseScope {
 
         // TODO: add static methods
 
-        // Method m[] = cls.getDeclaredMethods();
-        // for (int i = 0; i < m.length; ++i) {
-        // System.out.println(m[i].toString());
-        // }
     }
 
     public String GenerateVariableName() {
-        String letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ" + "abcdefghijklmnopqrstuvxyz";
-        String digits = "0123456789";
+        String letters = "abcdefghijklmnopqrstuvxyz";
         String ans = "";
-        for (int i = 0; i < 3; ++i) {
-            int index = (int) (letters.length() * Math.random());
-            ans += letters.charAt(index);
-        }
-        for (int i = 0; i < 3; ++i) {
-            int index = (int) (digits.length() * Math.random());
-            ans += digits.charAt(index);
-        }
+        int cur = nameIdx++;
+        do {
+            ans += letters.charAt(cur % letters.length());
+            cur /= letters.length();
+        } while (cur > 0);
         return ans;
+    }
+
+    // TODO: add fields
+    public void updateScope(Statement st) {
+        if (st instanceof ConstructorStatement) {
+            try {
+                ConstructorStatement cs = (ConstructorStatement) st;
+                Class cls = Class.forName(cs.getClassPath());
+                Method m[] = cls.getDeclaredMethods();
+                for (int i = 0; i < m.length; ++i) {
+                    String methodType = m[i].getReturnType().toString();
+                    String objectName = cs.getName();
+                    String methodName = m[i].getName();
+                    Class[] pt = m[i].getParameterTypes();
+                    String[] parameterTypes = new String[pt.length];
+                    for (int j = 0; j < pt.length; j++) {
+                        parameterTypes[j] = pt[j].toString();
+                    }
+                    availableStatements.add(new MethodStatement(methodType, objectName, methodName, parameterTypes));
+                }
+            } catch (Exception e) {
+                e.printStackTrace();
+                System.out.println("updateScope obosralsya");
+            }
+
+        }
     }
 
 }

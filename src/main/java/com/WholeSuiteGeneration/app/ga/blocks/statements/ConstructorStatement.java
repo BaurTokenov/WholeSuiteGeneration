@@ -18,12 +18,17 @@ public class ConstructorStatement extends Statement {
   public String Translate() {
     return String.format("%s %s = new %s()", className, name, className);
   }
-  // napishi che nado chtoby ne zabytb
+
+  public String getClassPath() {
+    return classPath;
+  }
+
+  public String getName() {
+    return this.name;
+  }
 
   @Override
-  public void updateScope(TestCaseScope tcs) {
-    // TODO: add fields
-    // TODO: add methods
-
+  public void setName(String name) {
+    this.name = name;
   }
 }
