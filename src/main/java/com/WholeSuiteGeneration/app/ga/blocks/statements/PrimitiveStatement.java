@@ -47,7 +47,7 @@ public class PrimitiveStatement extends Statement {
         value = r.nextDouble() + "";
         break;
       case "String":
-        value = "\"Bauka\"";
+        value = getIntToString(Math.abs(r.nextInt()));
         break;
       default:
         break;
@@ -57,6 +57,16 @@ public class PrimitiveStatement extends Statement {
   @Override
   public void setName(String name) {
     this.name = name;
+  }
+
+  static String getIntToString(int key){
+    String letters = "abcdefghijklmnopqrstuvxyz" + "ABCDEFGHIJKLMNOPRSTUVXYZ" + "1234567890";
+    String ans = "";
+    do {
+        ans += letters.charAt(key % letters.length());
+        key /= letters.length();
+    } while (key > 0);
+    return ans;
   }
 
 }

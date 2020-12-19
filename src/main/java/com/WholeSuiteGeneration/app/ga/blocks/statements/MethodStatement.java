@@ -3,7 +3,7 @@ package com.WholeSuiteGeneration.app.ga.blocks.statements;
 import java.util.*;
 
 public class MethodStatement extends Statement {
-  String methodType, objectName, methodName, name;
+  public String methodType, objectName, methodName, name;
   String[] parameters;
 
   public MethodStatement(String methodType, String objectName, String methodName, String[] types) {

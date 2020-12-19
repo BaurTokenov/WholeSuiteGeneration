@@ -41,7 +41,7 @@ public class TestCase {
         for (Statement cur : this.statements) {
             if (cur instanceof MethodStatement) {
                 MethodStatement curMethodStatement = (MethodStatement) cur;
-                this.coverageSet.add(curMethodStatement.getName());
+                this.coverageSet.add(curMethodStatement.methodName);
             }
         }
         return this.coverageSet;

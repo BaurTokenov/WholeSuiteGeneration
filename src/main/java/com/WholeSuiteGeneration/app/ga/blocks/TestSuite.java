@@ -35,16 +35,16 @@ public class TestSuite implements Comparator<TestSuite> ,Comparable<TestSuite>{
             Class cls = Class.forName(this.classPath);
             Method m[] = cls.getDeclaredMethods();
             int totalMethods = m.length;
-            System.out.println("total Methods: " + totalMethods + "executed Methods: " + executedMethods.size());
-            System.out.println("All methods:");
-            for (int i = 0; i < m.length; ++i) {
-                String methodName = m[i].getName();                
-                System.out.println(methodName);
-            }
-            System.out.println("executed methods:");
-            for (String executedMethodName: executedMethods) {
-                System.out.println(executedMethodName);
-            }
+            // System.out.println("total Methods: " + totalMethods + "executed Methods: " + executedMethods.size());
+            // System.out.println("All methods:");
+            // for (int i = 0; i < m.length; ++i) {
+            //     String methodName = m[i].getName();                
+            //     System.out.println(methodName);
+            // }
+            // System.out.println("executed methods:");
+            // for (String executedMethodName: executedMethods) {
+            //     System.out.println(executedMethodName);
+            // }
 
             return executedMethods.size() * 1.0 / totalMethods;
         } catch (ClassNotFoundException e) {
