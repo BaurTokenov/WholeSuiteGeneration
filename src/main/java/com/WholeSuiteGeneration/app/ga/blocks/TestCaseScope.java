@@ -34,13 +34,11 @@ public class TestCaseScope {
             Constructor ctorlist[] = cls.getDeclaredConstructors();
             for (int i = 0; i < ctorlist.length; i++) {
                 Constructor ct = ctorlist[i];
-                System.out.println(ct);
                 // String name = ct.getName();
                 Class p[] = ct.getParameterTypes();
                 String pvec[] = new String[p.length];
 
                 for (int j = 0; j < p.length; j++) {
-                    System.out.println(pvec[j]);
                     pvec[j] = p[j].toString();
                 }
                 ConstructorStatement cs = new ConstructorStatement(className, pvec, classPath);
