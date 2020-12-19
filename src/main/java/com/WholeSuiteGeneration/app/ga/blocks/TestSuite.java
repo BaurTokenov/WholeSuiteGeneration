@@ -9,6 +9,13 @@ public class TestSuite {
     ArrayList<TestCase> tests;
     String className;
 
+    public TestSuite(int suiteMaxLen, int maxTestLen, String className, String classPath) {
+        for (int i = 0; i < suiteMaxLen; ++i) {
+            TestCase newTestCase = new TestCase(maxTestLen, className, classPath);
+            tests.add(newTestCase);
+        }
+    }
+
     public double calculateFitness(TestSuite testSuite) {
         Set<String> executedMethods = Collections.<String>emptySet();
         for (TestCase test : this.tests) {
@@ -26,6 +33,14 @@ public class TestSuite {
         }
 
         return 0.95;
+    }
+
+    public String getCode() {
+        String code = "";
+        for (TestCase cur : this.tests) {
+            code += cur.getCode() + ";\n";
+        }
+        return code;
     }
 
 }
