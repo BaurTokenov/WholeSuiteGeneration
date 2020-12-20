@@ -11,9 +11,10 @@ public class App {
         String className = args[0];
         int maxTestLen = 15;
         int suiteMaxLen = 20;
-        // TestSuite checkTestSuite = new TestSuite(suiteMaxLen, maxTestLen, className, classPath);
+        // TestSuite checkTestSuite = new TestSuite(suiteMaxLen, maxTestLen, className,
+        // classPath);
 
-        TestSuite best = ga.performGA(classPath, className, 10, 10, suiteMaxLen, maxTestLen);
+        TestSuite best = ga.performGA(classPath, className, 100, 100, suiteMaxLen, maxTestLen);
 
         System.out.println("Best is: " + best.calculateFitness());
         System.out.println(best.getCode());
